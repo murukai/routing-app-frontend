@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <ul *ngIf="nodes" class="list-group">
+        <li *ngFor="let node of nodes" class="list-group-item">
+          <div class="md-v-line"></div><i class="far fa-gem mr-5"></i>Original Planet : {{ node.planetOrig }}, Node : {{ node.planetOrig }}, Distance : {{ node.distance }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">Calculate</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-8">
+              <div class="row">
+                <div class="col-12">
+                  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+                    <div class="form-group">
+                        <label for="username">Original Planet</label>
+                        <input
+                            formControlName="originPlanet"
+                            id="originPlanet"
+                            type="text"
+                            class="form-control">
+                            <div *ngIf="originPlanet.touched && originPlanet.invalid" class="alert alert-danger">
+                              <div *ngIf="originPlanet.errors.required">Original planet is required</div>
+                              <div *ngIf="originPlanet.errors.minlength">Original planet should be {{ originPlanet.errors.minlength.requiredLength }} characters</div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="destPlanet">Destination Planet</label>
+                      <input
+                          formControlName="destPlanet"
+                          id="destPlanet"
+                          type="text"
+                          class="form-control">
+                          <div *ngIf="destPlanet.touched && destPlanet.invalid" class="alert alert-danger">
+                            <div *ngIf="destPlanet.errors.required">Destination planet is required</div>
+                            <div *ngIf="destPlanet.errors.minlength">Destination planet should be {{ originPlanet.errors.minlength.requiredLength }} characters</div>
+                          </div>
+                  </div>
+                    <button class="btn btn-primary" type="submit" >Calculate</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-8">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <div class="form-group">
+          <label for="username">Original Planet</label>
+          <input
+              formControlName="planetNode"
+              id="planetNode"
+              type="text"
+              class="form-control">
+              <div *ngIf="planetNode.touched && planetNode.invalid" class="alert alert-danger">
+                <div *ngIf="planetNode.errors.required">Original planet is required</div>
+                <div *ngIf="planetNode.errors.minlength">Original planet should be {{ originPlanet.errors.minlength.requiredLength }} characters</div>
+              </div>
+      </div>
+      <div class="form-group">
+        <label for="username">Destination Planet</label>
+        <input
+            formControlName="name"
+            id="destPlanet"
+            type="text"
+            class="form-control">
+            <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+              <div *ngIf="name.errors.required">Destination planet is required</div>
+              <div *ngIf="name.errors.minlength">Destination planet should be {{ originPlanet.errors.minlength.requiredLength }} characters</div>
+            </div>
+    </div>
+      <button class="btn btn-primary" type="submit" >Calculate</button>
+    </form>
+  </div>
+</div>

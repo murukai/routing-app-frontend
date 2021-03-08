@@ -1,0 +1,20 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Planet Node</th>
+          <th scope="col">Name Of The Planet</th>
+          <th scope="col">Calculate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let planet of planets">
+          <td>{{ planet.planetNode }}</td>
+          <td>{{ planet.name }}</td>
+          <td><a href="#">{{ planet.name }}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
